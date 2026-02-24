@@ -1,0 +1,123 @@
+:root {
+  --bg-white: #f8fafc;
+  --text-main: #334155;
+  --accent: #6366f1;
+  /* 3D Soft Shadow Palette */
+  --light-shadow: #ffffff;
+  --dark-shadow: #d1d5db;
+}
+
+.navbar {
+  position: fixed;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  background: var(--bg-white);
+  padding: 0.8rem 2rem;
+  border-radius: 20px;
+  /* 3D Neumorphic Lift */
+  box-shadow: 8px 8px 16px var(--dark-shadow), 
+              -8px -8px 16px var(--light-shadow);
+  z-index: 1000;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-weight: 900;
+  font-size: 1.4rem;
+  color: var(--text-main);
+  letter-spacing: -1px;
+}
+
+.nav-logo span {
+  color: var(--accent);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-main);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+/* 3D Button for "Contact" */
+.nav-cta {
+  background: var(--bg-white);
+  padding: 0.6rem 1.5rem !important;
+  border-radius: 12px;
+  box-shadow: 4px 4px 8px var(--dark-shadow), 
+              -4px -4px 8px var(--light-shadow);
+}
+
+.nav-cta:active {
+  box-shadow: inset 2px 2px 5px var(--dark-shadow), 
+              inset -2px -2px 5px var(--light-shadow);
+}
+
+/* Hamburger Menu Logic */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  padding: 10px;
+  border-radius: 8px;
+  background: var(--bg-white);
+  box-shadow: 3px 3px 6px var(--dark-shadow), 
+              -3px -3px 6px var(--light-shadow);
+}
+
+.line {
+  width: 25px;
+  height: 3px;
+  background-color: var(--text-main);
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  /* Hamburger Animation to 'X' */
+  .hamburger.open .line:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .hamburger.open .line:nth-child(2) { opacity: 0; }
+  .hamburger.open .line:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+  .nav-links {
+    position: absolute;
+    top: 80px;
+    right: 0;
+    width: 100%;
+    flex-direction: column;
+    background: var(--bg-white);
+    padding: 2rem 0;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}
